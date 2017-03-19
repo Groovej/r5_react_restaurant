@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">
+            <a href="/">Reillly restaurants</a>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li class="menu-text">
+            <a href="/admin">manage restaurants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

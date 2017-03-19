@@ -1,0 +1,20 @@
+<div class="row">
+  <h3><%= @restaurant.name %></h3>
+</div>
+<div class="row">
+  <div class="columns medium-6">
+    <p>
+      <%= @restaurant.description %>
+    </p>
+  </div>
+  <div class="columns medium-6">
+    <h3>
+      Comments
+    </h3>
+    <%# @comments.each do |comment| %>
+      <%# react_component('Comment', { author: comment.author, body: comment.body, rank: comment.rank }) %>
+    <%# end %>
+    <%# react_component('CommentList', { comments: raw( render(template: 'comments/index.json.jbuilder') ) }) %>
+    <%= react_component('CommentList') %>
+  </div>
+</div>
