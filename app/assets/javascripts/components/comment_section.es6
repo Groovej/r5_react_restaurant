@@ -27,8 +27,8 @@ class CommentSection extends React.Component {
 
   render() {
     return <div>
-        <CommentForm />
-        <CommentList store={this.store}/>
+        <CommentForm isReplying={true} />
+        <CommentList parent_id={null} />
       </div>;
   }
 }

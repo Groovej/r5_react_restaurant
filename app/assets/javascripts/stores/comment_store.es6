@@ -16,13 +16,21 @@ class CommentStore extends EventEmitter {
           this.addComment(payload.comment)
           this.emitChange()
           break
+        case Constants.UPVOTE_COMMENT:
+          this.upvoteComment(payload.comment)
+          this.emitChange()
+          break
         default:
           // NO-OP
       }
     });
   }
 
-  addComment (comment){
+  upvoteComment(comment) {
+    this._comments[comment.id].rank++;
+  }
+
+  addComment(comment) {
     this._comments[comment.id || this._comments.length] = comment;
   }
 
@@ -32,8 +40,8 @@ class CommentStore extends EventEmitter {
     })
   }
 
-  comments (){
-    return this._comments;
+  comments (parentId){
+    return this._comments.filter(c => { return c && c.parent_id === parentId });
   }
 
   addChangeListener (callback){

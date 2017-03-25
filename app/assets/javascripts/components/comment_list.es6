@@ -17,17 +17,18 @@ class CommentList extends React.Component{
   }
 
   render() {
-    return <div>
+    return <ul>
         {/* JSON.parse(this.props.comments).map(function(comment){
             return <Comment key={comment.id} {... comment} />;
           })
         */}
+        
 
-        { this.props.store.comments().map((comment,i ) => {
+        { this.context.store.comments(this.props.parent_id).map((comment,i ) => {
             return <Comment key={i} {... comment} />;
           })
         }
-      </div>
+      </ul>
   }
 
   _onChange() {

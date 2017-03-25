@@ -4,6 +4,12 @@ class CommentsController < ActionController::Base
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :author)
+    params.require(:comment).permit(:body, :author, :parent_id)
+  end
+
+  def upvote
+    @comment = Comment.find(params[:id]);
+    @comment.upvote
+    render :create
   end
 end

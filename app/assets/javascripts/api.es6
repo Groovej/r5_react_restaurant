@@ -12,12 +12,21 @@ class Api {
       'X-Requested-With': 'XMLHttpRequest'
     }
   }
+
   static post(route, params) {
     return fetch(`${route}.json`, _.merge({
       method: 'post',
       credentials: 'include',
       headers: this.headers()
     }, { body: JSON.stringify(params)}));
+  }
+
+  static put(route) {
+    return fetch(`${route}.json`, {
+      method: 'put',
+      credentials: 'include',
+      headers: this.headers()
+    });
   }
 }
 
