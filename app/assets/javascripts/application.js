@@ -14,13 +14,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require lodash
-//= require react
-//= require react_ujs
-//= require flux
-//= require eventemitter
-//= require components
-//= require_tree .
+//= require generated/client-bundle
 
 $(function(){ $(document).foundation(); });
-System.import('components/comment_section')

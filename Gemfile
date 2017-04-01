@@ -24,6 +24,7 @@ gem 'react-rails'
 gem 'flux-rails-assets'
 gem 'lodash-rails'
 gem 'sprockets-es6'
+# gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

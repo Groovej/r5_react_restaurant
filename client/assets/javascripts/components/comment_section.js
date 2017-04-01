@@ -1,7 +1,7 @@
-import Actions from 'actions';
-import CommentStore from 'stores/comment_store';
-import CommentList from 'components/comment_list'
-import CommentForm from 'components/comment_form';
+import Actions from '../actions';
+import CommentStore from '../stores/comment_store';
+import CommentList from './comment_list'
+import CommentForm from './comment_form';
 
 class CommentSection extends React.Component {
   constructor(props){
@@ -11,7 +11,7 @@ class CommentSection extends React.Component {
     this.actions.setComments(JSON.parse(props.comments))
   }
 
-  static get childContextTypes(){
+static get childContextTypes(){
     return {
       store: React.PropTypes.object.isRequired,
       actions: React.PropTypes.object.isRequired
@@ -26,10 +26,12 @@ class CommentSection extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <CommentForm isReplying={true} />
         <CommentList parent_id={null} />
-      </div>;
+      </div>
+    );
   }
 }
 
