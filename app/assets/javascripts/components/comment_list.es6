@@ -22,9 +22,9 @@ class CommentList extends React.Component{
             return <Comment key={comment.id} {... comment} />;
           })
         */}
-        
 
-        { this.context.store.comments(this.props.parent_id).map((comment,i ) => {
+
+        { this.context.store.comments(this.props.parent_id).map(function(comment,i ) {
             return <Comment key={i} {... comment} />;
           })
         }
@@ -36,4 +36,4 @@ class CommentList extends React.Component{
   }
 }
 
-export default CommentList;
+export default CommentList
