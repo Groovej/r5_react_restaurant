@@ -16,7 +16,11 @@
     <%# end %>
     <%# react_component('CommentList', { comments: raw( render(template: 'comments/index.json.jbuilder') ) }) %>
     <%# react_component('CommentSection', comments: raw( render(template: 'comments/index.json.jbuilder')), restaurantId: @restaurant.id ) %>
-    <% props = "{ restaurantId: #{@restaurant.id}, comments: #{raw(render(template: 'comments/index.json.jbuilder'))} }" %>
-    <%= client('CommentSection', 'cs', props)%>
+    <% props = JSON.parse("{ \"restaurantId\": #{@restaurant.id}, \"comments\": #{raw(render(template: 'comments/index.json.jbuilder'))} }") %>
+    <% if (params[:client].present?) %>
+      <%= client('CommentSection', 'cs_client', props)%>
+    <% else %>
+      <%= isomorphic('CommentSection', 'cs_server', props)%>
+    <% end %>
   </div>
 </div>
