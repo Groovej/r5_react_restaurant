@@ -15,6 +15,8 @@
       <%# react_component('Comment', { author: comment.author, body: comment.body, rank: comment.rank }) %>
     <%# end %>
     <%# react_component('CommentList', { comments: raw( render(template: 'comments/index.json.jbuilder') ) }) %>
-    <%= react_component('CommentSection', comments: raw( render(template: 'comments/index.json.jbuilder')), restaurantId: @restaurant.id ) %>
+    <%# react_component('CommentSection', comments: raw( render(template: 'comments/index.json.jbuilder')), restaurantId: @restaurant.id ) %>
+    <% props = "{ restaurantId: #{@restaurant.id}, comments: #{raw(render(template: 'comments/index.json.jbuilder'))} }" %>
+    <%= client('CommentSection', 'cs', props)%>
   </div>
 </div>
