@@ -32,6 +32,14 @@ group :development, :test do
   # gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'capybara-screenshot'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'simplecov'
+  gem 'database_cleaner'
 end
 
 group :development do
