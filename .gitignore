@@ -21,3 +21,4 @@
 .byebug_history
 
 /client/node_modules/*
+/coverage/*
